@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up Free Fire</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF9F00; /* Oranye Free Fire */
+            --secondary: #FF4500; /* Oranye tua */
+            --dark: #1A1A2E; /* Biru gelap */
+            --light: #F8F9FA; /* Putih */
+            --accent: #FF0000; /* Merah */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), #0F0F2D);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            animation: bgPulse 15s infinite alternate;
+        }
+        
+        @keyframes bgPulse {
+            0% { background: linear-gradient(135deg, var(--dark), #0F0F2D); }
+            50% { background: linear-gradient(135deg, #0F0F2D, var(--dark)); }
+            100% { background: linear-gradient(135deg, var(--dark), #0F0F2D); }
+        }
+        
+        .container {
+            background: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--primary);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 10px -5px var(--primary); }
+            to { box-shadow: 0 0 15px 3px var(--primary); }
+        }
+        
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2rem;
+            text-shadow: 0 0 5px rgba(255, 159, 0, 0.5);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        h2, h3 {
+            color: var(--primary);
+            margin: 12px 0 8px;
+            font-size: 1.1rem;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .info-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            margin: 15px 0;
+            opacity: 0.3;
+        }
+        
+        .menu-btn {
+            display: block;
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 100%;
+            margin: 12px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-btn:disabled {
+            background: #666;
+            color: #999;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        
+        .menu-btn:not(:disabled):hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(255, 0, 0, 0.3);
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .payment-method {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .payment-method::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+        
+        .payment-method:hover::before {
+            animation: shine 1.5s;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 150%; opacity: 0; }
+        }
+        
+        .payment-method:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 3px 8px rgba(255, 159, 0, 0.2);
+        }
+        
+        .payment-method i {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--accent);
+            background: rgba(255, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+        }
+        
+        .topup-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .topup-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .topup-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            background: rgba(255, 159, 0, 0.1);
+            box-shadow: 0 3px 8px rgba(255, 159, 0, 0.2);
+        }
+        
+        .topup-item.selected {
+            border-color: var(--accent);
+            background: rgba(255, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+        }
+        
+        .diamond-amount {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--light);
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .membership-section {
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--primary);
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            opacity: 0;
+            animation: confettiFall 5s linear infinite;
+            z-index: 1000;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .fire-effect {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(8px);
+            opacity: 0.5;
+            animation: fireFlicker 2s infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes fireFlicker {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background fire effects -->
+    <div class="fire-effect" style="top:10%;left:10%;"></div>
+    <div class="fire-effect" style="bottom:10%;right:10%;animation-delay:0.5s;"></div>
+    
+    <div class="container">
+        <h1>TOP UP FREE FIRE</h1>
+        
+        <h2>MASUKKAN ID PLAYER</h2>
+        
+        <p class="info-text">
+            Untuk menemukan ID Anda, klik pada ikon karakter.<br>
+            User ID tercantum di bawah nama karakter Anda.<br>
+            Contoh: '5363266446'
+        </p>
+        
+        <div class="input-group">
+            <input type="text" id="player-id" placeholder="Masukkan Player ID" required>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2>PILIH NOMINAL TOP UP</h2>
+        
+        <div class="topup-list">
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF20" data-price="4000">
+                <div class="diamond-amount">FF20</div>
+                <div class="price">Rp 4.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF50" data-price="7500">
+                <div class="diamond-amount">FF50</div>
+                <div class="price">Rp 7.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF70" data-price="9500">
+                <div class="diamond-amount">FF70</div>
+                <div class="price">Rp 9.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF100" data-price="14500">
+                <div class="diamond-amount">FF100</div>
+                <div class="price">Rp 14.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF120" data-price="16500">
+                <div class="diamond-amount">FF120</div>
+                <div class="price">Rp 16.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF140" data-price="19000">
+                <div class="diamond-amount">FF140</div>
+                <div class="price">Rp 19.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF150" data-price="21500">
+                <div class="diamond-amount">FF150</div>
+                <div class="price">Rp 21.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF190" data-price="26000">
+                <div class="diamond-amount">FF190</div>
+                <div class="price">Rp 26.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF210" data-price="28500">
+                <div class="diamond-amount">FF210</div>
+                <div class="price">Rp 28.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF280" data-price="37500">
+                <div class="diamond-amount">FF280</div>
+                <div class="price">Rp 37.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF355" data-price="47000">
+                <div class="diamond-amount">FF355</div>
+                <div class="price">Rp 47.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF400" data-price="53500">
+                <div class="diamond-amount">FF400</div>
+                <div class="price">Rp 53.500</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF500" data-price="65000">
+                <div class="diamond-amount">FF500</div>
+                <div class="price">Rp 65.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF635" data-price="83000">
+                <div class="diamond-amount">FF635</div>
+                <div class="price">Rp 83.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF720" data-price="94000">
+                <div class="diamond-amount">FF720</div>
+                <div class="price">Rp 94.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF800" data-price="103000">
+                <div class="diamond-amount">FF800</div>
+                <div class="price">Rp 103.000</div>
+            </div>
+            
+            <div class="topup-item" onclick="selectTopUp(this)" data-amount="FF1000" data-price="129000">
+                <div class="diamond-amount">FF1000</div>
+                <div class="price">Rp 129.000</div>
+            </div>
+        </div>
+        
+        <div class="membership-section">
+            <h3>MEMBERSHIP</h3>
+            <div class="topup-list">
+                <div class="topup-item" onclick="selectTopUp(this)" data-amount="Membership 1 Minggu" data-price="28500">
+                    <div class="diamond-amount">1 Minggu</div>
+                    <div class="price">Rp 28.500</div>
+                </div>
+                
+                <div class="topup-item" onclick="selectTopUp(this)" data-amount="Membership 1 Bulan" data-price="87000">
+                    <div class="diamond-amount">1 Bulan</div>
+                    <div class="price">Rp 87.000</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h2>METODE PEMBAYARAN</h2>
+        
+        <div class="payment-methods">
+            <div class="payment-method" onclick="selectPayment(this)">
+                <i class="fab fa-google-pay"></i>
+                <div>GoPay</div>
+            </div>
+            
+            <div class="payment-method" onclick="selectPayment(this)">
+                <i class="fas fa-university"></i>
+                <div>SeaBank</div>
+            </div>
+            
+            <div class="payment-method" onclick="selectPayment(this)">
+                <i class="fas fa-home"></i>
+                <div>Bayar Dirumah</div>
+            </div>
+        </div>
+        
+        <button id="pay-button" class="menu-btn" disabled onclick="processPayment()">
+            LANJUTKAN PEMBAYARAN
+        </button>
+    </div>
+    
+    <script>
+        let selectedTopUp = null;
+        let selectedPayment = null;
+        const payButton = document.getElementById('pay-button');
+        
+        // Fungsi untuk memeriksa kelengkapan form
+        function checkFormCompletion() {
+            const playerId = document.getElementById('player-id').value;
+            payButton.disabled = !(playerId && selectedTopUp && selectedPayment);
+        }
+        
+        // Pilih nominal top up
+        function selectTopUp(element) {
+            document.querySelectorAll('.topup-item').forEach(el => {
+                el.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedTopUp = {
+                amount: element.getAttribute('data-amount'),
+                price: element.getAttribute('data-price')
+            };
+            createConfetti();
+            checkFormCompletion();
+        }
+        
+        // Pilih metode pembayaran
+        function selectPayment(element) {
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            selectedPayment = element.querySelector('div').textContent;
+            createConfetti();
+            checkFormCompletion();
+        }
+        
+        // Validasi input player ID
+        document.getElementById('player-id').addEventListener('input', function() {
+            checkFormCompletion();
+        });
+        
+        // Proses pembayaran - redirect ke WhatsApp
+        function processPayment() {
+            const playerId = document.getElementById('player-id').value;
+            
+            if (!playerId) {
+                alert('Silakan masukkan Player ID Anda!');
+                return;
+            }
+            
+            if (!selectedTopUp) {
+                alert('Silakan pilih nominal top up!');
+                return;
+            }
+            
+            if (!selectedPayment) {
+                alert('Silakan pilih metode pembayaran!');
+                return;
+            }
+            
+            // Buat efek confetti lebih banyak
+            for (let i = 0; i < 20; i++) {
+                createConfetti();
+            }
+            
+            // Format pesan untuk WhatsApp
+            const message = `Halo, saya ingin top up Free Fire:\n\n` +
+                           `Player ID: ${playerId}\n` +
+                           `Paket: ${selectedTopUp.amount}\n` +
+                           `Harga: Rp ${formatCurrency(selectedTopUp.price)}\n` +
+                           `Metode Pembayaran: ${selectedPayment}\n\n` +
+                           `Silakan konfirmasi ketersediaan.`;
+            
+            // Encode message untuk URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Redirect ke WhatsApp
+            window.location.href = `https://wa.me/6285704766540?text=${encodedMessage}`;
+        }
+        
+        // Format mata uang
+        function formatCurrency(num) {
+            return parseInt(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        
+        // Buat efek confetti
+        function createConfetti() {
+            const colors = ['#FF9F00', '#FF4500', '#FF0000', '#FFFFFF'];
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.width = Math.random() * 8 + 5 + 'px';
+            confetti.style.height = Math.random() * 8 + 5 + 'px';
+            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(confetti);
+            
+            // Hapus confetti setelah animasi selesai
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
